@@ -203,7 +203,7 @@ namespace BankAppCore
                         select_Bank.Add_Co_Owner(Write_ID(), Write_Share());
                         break;
                     case Account.Action.Redistribution_of_Funds:
-                        select_Bank.Redistribution_of_Funds(Write_ID());
+                        select_Bank.Redistribution_of_Funds();
                         break;
                     case Account.Action.Back_To_Bank_Select:
                         goto loop1;

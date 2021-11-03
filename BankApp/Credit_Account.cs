@@ -29,7 +29,7 @@ namespace BankApp
                     if (Amount_of_debt <= 0)
                     {
                         Console.WriteLine($"\nБорг рахунку {Account_ID} погашено. Скоро рахунок буде закрито.\n ");
-                        Select_Event(new Info_Blank(Lender, this), Action.Close_Account);
+                        Select_Base_Event(new Info_Blank(Lender, this), Action.Close_Account);
                     }
                 }
 
@@ -73,7 +73,8 @@ namespace BankApp
                     goto default;
 
                 case Action.Close_Account:
-                    goto default;
+                    Console.WriteLine($"Дія <{action}> недоступна для рахунку цього типу, , оскільки ТІЛЬКИ кредитор може закрити цей рахунок.\n ");
+                    break;
 
                 case Action.Add_Money:
                     goto default;
@@ -116,7 +117,7 @@ namespace BankApp
         /// </summary>
         public override void Show_Account()
         {
-            Console.WriteLine($"Рахунок для погашення боргу перед {Lender.Bank_name}: {Lender.Bank_account.Account_ID}. Власник: {User.First_Name} {User.Last_Name}. Сума боргу: {Amount_of_debt:c} під {Interest*100} % на рік.  Баланс: {Amount_of_money:c}");
+            Console.WriteLine($"Рахунок {Account_ID} для погашення боргу перед {Lender.Bank_name}: {Lender.Bank_account.Account_ID}. Власник: {User.First_Name} {User.Last_Name}.\nСума боргу: {Amount_of_debt:c} під {Interest*100} % на рік.  Баланс: {Amount_of_money:c}");
         }
     }
 }

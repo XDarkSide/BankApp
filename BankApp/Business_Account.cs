@@ -64,12 +64,12 @@ namespace BankApp
         /// </summary>
         public override void Show_Account()
         {
-            Console.WriteLine($"Бізнес-рахунок. Власник: {Organization_Name}. Баланс: {Amount_of_money:c}.");
+            Console.WriteLine($"Бізнес-рахунок {Account_ID}. Власник: {Organization_Name}. Баланс: {Amount_of_money:c}.");
 
             if(co_owners.Capacity > 0) Console.WriteLine("\nСписок співвласників: ");
             foreach (var res in co_owners)
             {
-                Console.WriteLine($"{res.User.First_Name} {res.User.Last_Name}.\t\t Доля відповідальності: {res.Share_of_Responsibility * 100} %");
+                Console.WriteLine($"{res.User.First_Name} {res.User.Last_Name}.\t Доля відповідальності: {res.Share_of_Responsibility * 100} %");
             }
         }
 
@@ -93,7 +93,7 @@ namespace BankApp
         {
             try
             {
-                if (Balance_of_Liability >= 0)
+                if (Balance_of_Liability >= share)
                 {
                     if (account is Depozit_Account depozit)
                     {

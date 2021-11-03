@@ -135,7 +135,7 @@ namespace BankApp
         {
             Account acc = SeachrAcc(To, out bool find);
 
-            if (find && Selected_Acc != null) Selected_Acc.Select_Event(new Info_Blank(this, Selected_Acc, summ, acc, false), Account.Action.Transfer_Money);
+            if (find && Selected_Acc != null) Selected_Acc.Select_Event(new Info_Blank(this, Selected_Acc, summ, acc, Selected_Acc is Business_Account ? true : false), Account.Action.Transfer_Money);
             else
             {
                 Console.WriteLine($"Ви не ввійшли в свій рахунок!");
@@ -151,10 +151,10 @@ namespace BankApp
         {
             Account acc = SeachrAcc(co_owner, out bool find);
 
-            if (find && Selected_Acc !=null) Selected_Acc.Select_Event(new Info_Blank(this, acc, share:share), Account.Action.Add_Co_Owner);
+            if (find && Selected_Acc !=null && Selected_Acc is Business_Account) Selected_Acc.Select_Event(new Info_Blank(this, acc, share:share), Account.Action.Add_Co_Owner);
             else
             {
-                Console.WriteLine($"Ви не ввійшли в свій рахунок!");
+                Console.WriteLine($"Ви не ввійшли в свій рахунок або цей рахунок не підтримує вибрану дію! ");
             }
         }
 
@@ -162,7 +162,7 @@ namespace BankApp
         /// Реалізує разову виплату коштів з бізнес-рахунку співвласникам
         /// </summary>
         /// <param name="ac"></param>
-        public void Redistribution_of_Funds(string ac)
+        public void Redistribution_of_Funds()
         {
             if (Selected_Acc != null && Selected_Acc is Business_Account)
             {
@@ -171,7 +171,7 @@ namespace BankApp
 
             else
             {
-                Console.WriteLine($"Ви не ввійшли в свій рахунок!");
+                Console.WriteLine($"Ви не ввійшли в свій рахунок або цей рахунок не підтримує вибрану дію! ");
             }
         }
 

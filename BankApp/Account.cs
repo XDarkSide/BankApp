@@ -120,6 +120,7 @@ namespace BankApp
             if (info_Blank.Succes)
             {
                 info_Blank.To_Acc.Put_Money(info_Blank);
+
                 if(!info_Blank.NullCommission) info_Blank.Selected_account.Select_Event(new Info_Blank(info_Blank.Bank_address, info_Blank.Selected_account, info_Blank.Selected_account.Commission(info_Blank), info_Blank.Bank_address.Bank_account ), Action.Pay_Commission);
             }
         }
