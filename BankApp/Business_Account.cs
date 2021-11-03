@@ -130,8 +130,8 @@ namespace BankApp
         }
         private struct Businessman
         {
-            public User User { get; private set; }
-            public Account Account { get; private set; }
+            public User User { get; private init; }
+            public Account Account { get; private init; }
             public double Share_of_Responsibility { get; private set; }
 
             /// <summary>

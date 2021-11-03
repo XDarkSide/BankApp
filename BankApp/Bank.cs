@@ -15,9 +15,9 @@ namespace BankApp
         public Bank_Account Bank_account { get; private init; }
         public int Number_of_customers { get; private set; }
         public Account Selected_Acc { get; private set; }
+        public double Amount_of_commission { get; set; }
 
         private double Annual_percentage { get; init; }
-        private double Amount_of_commission { get; set; }
 
         private List<Account> accounts = new List<Account>();
 
@@ -42,6 +42,8 @@ namespace BankApp
         {
             accounts.Remove(info_Blank.Selected_account);
             Number_of_customers--;
+
+            Selected_Acc = null;
         }
 
         /// <summary>
@@ -95,7 +97,6 @@ namespace BankApp
             else 
             {
                 Console.WriteLine($"Ви не ввійшли в свій рахунок!");
-                Select_Account(bankAppCore.Write_ID());
             }
         }
 
@@ -109,7 +110,6 @@ namespace BankApp
             else
             {
                 Console.WriteLine($"Ви не ввійшли в свій рахунок!");
-                Select_Account(bankAppCore.Write_ID());
             }
         }
 
@@ -123,7 +123,6 @@ namespace BankApp
             else 
             {
                 Console.WriteLine($"Ви не ввійшли в свій рахунок!");
-                Select_Account(bankAppCore.Write_ID());
             }
         }
 
@@ -140,7 +139,6 @@ namespace BankApp
             else
             {
                 Console.WriteLine($"Ви не ввійшли в свій рахунок!");
-                Select_Account(bankAppCore.Write_ID());
             }
         }
 
@@ -157,7 +155,6 @@ namespace BankApp
             else
             {
                 Console.WriteLine($"Ви не ввійшли в свій рахунок!");
-                Select_Account(bankAppCore.Write_ID());
             }
         }
 
@@ -175,7 +172,6 @@ namespace BankApp
             else
             {
                 Console.WriteLine($"Ви не ввійшли в свій рахунок!");
-                Select_Account(bankAppCore.Write_ID());
             }
         }
 

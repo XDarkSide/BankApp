@@ -188,7 +188,7 @@ namespace BankApp
                         break;
 
                     case Action.Transfer_Money:
-                        if (Access && !IsFrozen) UseEvent(money_transferred, info_Blank);
+                        if ((Access && !IsFrozen) || info_Blank.Selected_account is Bank_Account) UseEvent(money_transferred, info_Blank);
                         else throw new Exception($"Немає доступу до рахунку {Account_ID}");
                         break;
 
@@ -212,6 +212,11 @@ namespace BankApp
             commision = !info_Blank.NullCommission ? (info_Blank.Summ * (decimal)info_Blank.Bank_address.Amount_of_commission) : 0;
 
             return commision;
+        }
+
+        ~Account() // автоматичне управління пам'яттю, збиральник сміття
+        {
+            Console.WriteLine($"Доступ до {Account_ID} остаточно втрачено. ");
         }
 
         private class Login_Password
