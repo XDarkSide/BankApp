@@ -15,7 +15,7 @@ namespace BankApp
         public Bank_Account Bank_account { get; private init; }
         public int Number_of_customers { get; private set; }
         public Account Selected_Acc { get; private set; }
-        public double Amount_of_commission { get; set; }
+        public double Amount_of_commission { get; private set; }
 
         private double Annual_percentage { get; init; }
 
